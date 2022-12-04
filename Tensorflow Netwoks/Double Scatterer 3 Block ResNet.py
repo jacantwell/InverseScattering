@@ -6,6 +6,7 @@ import joblib
 from joblib import Parallel, delayed
 import FieldGen as fg
 import TrainingDataGen as tg
+import LossFunctions as ls
 
 train_in, train_out = tg.TrainGen(10000,600,1,1)
 test_in, test_out = tg.TrainGen(2000,600,1,1)
@@ -91,7 +92,7 @@ def build_model(input_shape, nb_classes):
     
 model = build_model(train_in[0].shape,4)
 
-model.compile(loss='mean_absolute_error', optimizer=keras.optimizers.Adam(learning_rate=0.00001),metrics=['mean_absolute_error'])
+model.compile(loss=ls.absolute_loss, optimizer=keras.optimizers.Adam(learning_rate=0.00001),metrics=[ls.absolute_loss])
 epochs = 50
 
 history = model.fit(train_in, train_out, batch_size=10000, epochs=epochs, shuffle=False, verbose=1, validation_data=(test_in, test_out))
