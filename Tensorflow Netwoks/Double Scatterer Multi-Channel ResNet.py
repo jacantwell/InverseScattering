@@ -7,6 +7,7 @@ from tensorflow import keras
 from keras import layers
 import FieldGen as fg
 from FieldGen import *
+import LossFunctions as ls
 
 
 class LRFinder(Callback):
