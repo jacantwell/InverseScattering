@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Poetry
+poetry.lock
+
+# Environment
+.env
+
+# Mac stuff
+.DS_Store
+
+# VS Code
+.vscode/
